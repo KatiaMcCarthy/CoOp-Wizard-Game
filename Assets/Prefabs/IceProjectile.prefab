@@ -70,12 +70,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 300
   damage: 20
-  isPlayerOne: 1
-  isPlayerTwo: 0
-  isPlayerThree: 0
-  isPlayerFour: 0
-  isPlayerFive: 0
-  isPlayerSix: 0
 --- !u!61 &375735206696522565
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +18,8 @@ public class StatusManager : MonoBehaviour
     public enum StatusType { Stun, Slow , Fire, Bleed, Heal};
 
     private float preCCSpeed;
+
+    [SerializeField] private bool isSummon;
 
     public void UpdateIFrameStatus(bool value)
     {
@@ -69,16 +72,17 @@ public class StatusManager : MonoBehaviour
                     GetComponent<Health>().TakeDamage(-statusAmmount);
                     break;
                 case StatusType.Slow:
+                    if(!isSummon)
                     GetComponentInParent<PlayerStats>().UpdateSpeed(preCCSpeed * statusAmmount);
                     break;
                 case StatusType.Stun:
-                    GetComponentInParent<PlayerStats>().UpdateSpeed(0);
+                    //GetComponentInParent<PlayerStats>().UpdateSpeed(0);
+                    Debug.Log("stunned");
                     break;
                 default:
                     break;
             }
 
-            health.TakeDamage(statusAmmount);
             yield return new WaitForSeconds(statusDuration);
             currentCount++;
         }
@@ -97,15 +101,15 @@ public class StatusManager : MonoBehaviour
                 break;
             case StatusType.Slow:
                 OnSlowed = false;
+                if(!isSummon)
                 GetComponentInParent<PlayerStats>().UpdateSpeed(preCCSpeed);
                 break;
             case StatusType.Stun:
                 OnStunned = false;
-                GetComponentInParent<PlayerStats>().UpdateSpeed(preCCSpeed);
+                Debug.Log("stun turned off");
                 break;
             default:
                 break;
         }
     }
-
 }

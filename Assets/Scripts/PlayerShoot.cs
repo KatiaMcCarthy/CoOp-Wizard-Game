@@ -11,8 +11,8 @@ public class PlayerShoot : MonoBehaviour
 
     [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject projectile;
-    private float attackTime;
 
+    private float attackTime;
 
     private void Start()
     {

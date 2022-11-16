@@ -131,10 +131,10 @@ TextureImporter:
       name: FireWallPRoto_0
       rect:
         serializedVersion: 2
-        x: 316
-        y: 498
-        width: 2036
-        height: 813
+        x: 37
+        y: 184
+        width: 659
+        height: 196
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

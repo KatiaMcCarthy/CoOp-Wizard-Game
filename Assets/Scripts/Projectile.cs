@@ -8,7 +8,6 @@ public class Projectile : MonoBehaviour
     private Rigidbody2D rb;
     [SerializeField] private float speed;
     public float damage;
-
     public bool IsPlayerOne { get; private set; }
     public bool IsPlayerTwo { get; private set; }
     public bool IsPlayerThree { get; private set; }

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93ab99bca9796c647a8861dbc0c3fbf5, type: 3}
+  m_Name: AirWizard
+  m_EditorClassIdentifier: 
+  health: 80
+  speed: 350
+  attackSpeed: 2
+  damage: 30
+  player: {fileID: 491304439715232366, guid: b743b4d6cf46c6c4799209693a2d27af, type: 3}

@@ -34,7 +34,10 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb2d.velocity = movementDirection * speed * Time.deltaTime;
+        if (!GetComponent<StatusManager>().OnStunned)
+        {
+            rb2d.velocity = movementDirection * speed * Time.deltaTime;
+        }
     }
 
    
