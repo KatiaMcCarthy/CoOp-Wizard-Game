@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9013ab8f45664cb4b95ddcccad330dcb
+guid: 5296a04f5c2dbae4d884dba0b4b3f40f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -128,13 +128,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Airnado_0
+      name: elementAirEfects_0
       rect:
         serializedVersion: 2
-        x: 260
-        y: 12
-        width: 1788
-        height: 1616
+        x: 183
+        y: 840
+        width: 712
+        height: 647
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -142,8 +142,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d318b4a94577e4a49a8990a87ee48dba
-      internalID: 402402983
+      spriteID: 00f2b60195409ec4b93878f8f98dce80
+      internalID: 1072716697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elementAirEfects_1
+      rect:
+        serializedVersion: 2
+        x: 1315
+        y: 1278
+        width: 717
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b40619358547764f8240f2b02f60353
+      internalID: -1519604853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elementAirEfects_2
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 50
+        width: 1588
+        height: 758
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cb30622967701f44aceff159cf4c95c
+      internalID: 580944863
       vertices: []
       indices: 
       edges: []
@@ -159,7 +201,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Airnado_0: 402402983
+      elementAirEfects_0: 1072716697
+      elementAirEfects_2: 580944863
+      elementAirEfects_1: -1519604853
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
