@@ -49,6 +49,8 @@ public class AbilityTurret : MonoBehaviour
 
             spawnedSpirtTurret.GetComponent<SummonStats>().UpdateOwnerID(GetComponentInParent<PlayerStats>().PlayerID);
 
+            spawnedSpirtTurret.GetComponent<SummonedInitalize>().Initalize();
+
             Invoke("DestroyTurret", duration);
         }
     }

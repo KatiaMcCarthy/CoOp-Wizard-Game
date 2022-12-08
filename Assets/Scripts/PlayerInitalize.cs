@@ -157,9 +157,7 @@ public class PlayerInitalize : MonoBehaviour
             cineCam.LookAt = player.transform;
         }
 
-
         PlayerManager.Instance.UpdatePlayerList(player);
-
     }
 
     public void SetUpCamera(int playerLayer)
@@ -182,6 +180,7 @@ public class PlayerInitalize : MonoBehaviour
             | (1 << 10)
             | (1 << 11)
             | (1 << 18)
+            | (1 << 19)
             ;
 
         cam.cullingMask = bitMask;

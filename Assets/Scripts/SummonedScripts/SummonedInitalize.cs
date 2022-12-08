@@ -6,7 +6,7 @@ public class SummonedInitalize : MonoBehaviour
 {
     [SerializeField] private SummonConfig config;
     private SummonStats stats;
-    private void Awake()
+    public void Initalize()
     {
         stats = GetComponent<SummonStats>();
 

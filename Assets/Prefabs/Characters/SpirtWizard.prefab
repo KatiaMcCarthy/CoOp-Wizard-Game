@@ -244,12 +244,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8235337abbd2fc42b160cebf2524950, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firePoint: {fileID: 8149251714986484158}
   projectile: {fileID: 0}
-  autolockRadius: 0
-  dotDuration: 0
-  dotTickCount: 0
-  tickDamage: 0
+  autolockRadius: 1
+  dotTickDuration: 0.25
+  dotTickCount: 4
+  tickDamage: 2
   targetsToHit:
     serializedVersion: 2
     m_Bits: 0

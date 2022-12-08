@@ -11,11 +11,10 @@ public class AbilityBasicAttack : MonoBehaviour
     [SerializeField] private GameObject projectile;
     [SerializeField] private float autolockRadius;
 
-    [SerializeField] private float dotDuration;
+    [SerializeField] private float dotTickDuration;
     [SerializeField] private int dotTickCount;
     [SerializeField] private float tickDamage;
     [SerializeField] private LayerMask targetsToHit;
-
 
     private Transform mouseLocation;
     private float attackTime;
@@ -39,21 +38,41 @@ public class AbilityBasicAttack : MonoBehaviour
         }
     }
 
-
     //modify for animations
-
     private void Shoot()
     {
+        var bitMask = ~((1 << GetComponentInParent<PlayerStats>().PlayerID + 5)
+           | (1 << 0)
+           | (1 << 1)
+           | (1 << 2)
+           | (1 << 3)
+           | (1 << 4)
+           | (1 << 5)
+           | (1 << 12)
+           | (1 << 13)
+           | (1 << 14)
+           | (1 << 15)
+           | (1 << 16)
+           | (1 << 17)
+           | (1 << 18))
+           ;
+
+        targetsToHit = bitMask;
+
         Collider2D[] enemiesToHit = Physics2D.OverlapCircleAll(mouseLocation.position, autolockRadius, targetsToHit);
 
         foreach (var enemy in enemiesToHit)
         {
-            if(enemy.GetComponentInParent<PlayerStats>().PlayerID == this.GetComponentInParent<PlayerStats>().PlayerID)
+            //for target
+            if (enemy.GetComponentInParent<PlayerStats>() != null)
             {
-                return;
+                if (enemy.GetComponentInParent<PlayerStats>().PlayerID == this.GetComponentInParent<PlayerStats>().PlayerID)
+                {
+                    return;
+                }
             }
 
-            enemy.GetComponent<StatusManager>().StartStaus(dotDuration, dotTickCount, tickDamage, StatusManager.StatusType.Bleed);     
+            enemy.GetComponent<StatusManager>().StartStaus(dotTickDuration, dotTickCount, tickDamage, StatusManager.StatusType.Bleed);     
         }
     }
 }

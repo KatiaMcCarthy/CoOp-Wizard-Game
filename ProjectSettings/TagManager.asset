@@ -11,6 +11,7 @@ TagManager:
   - Player5
   - Player6
   - Projectile
+  - Target
   layers:
   - Default
   - TransparentFX
@@ -31,7 +32,7 @@ TagManager:
   - Cam5
   - Cam6
   - Wall
-  - 
+  - Target
   - 
   - 
   - 

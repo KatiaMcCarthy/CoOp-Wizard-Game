@@ -51,7 +51,8 @@ public class Drain : MonoBehaviour
            | (1 << 14)
            | (1 << 15)
            | (1 << 16)
-           | (1 << 17))
+           | (1 << 17)
+           | (1 << 18))
            ;
 
         drainTargets = bitMask;

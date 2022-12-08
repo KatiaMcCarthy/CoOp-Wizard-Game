@@ -26,14 +26,14 @@ public class StatusManager : MonoBehaviour
         iFrameEnabled = value;
     }
 
-    public void StartStaus(float dotDuration, int tickCount, float statusAmmount, StatusType statusType)
+    public void StartStaus(float tickDuration, int tickCount, float statusAmmount, StatusType statusType)
     {
-        StartCoroutine(DoStatusEffect(dotDuration, tickCount, statusAmmount, statusType));
+        StartCoroutine(DoStatusEffect(tickDuration, tickCount, statusAmmount, statusType));
     } 
 
     //combine boht corountines, combine type
 
-    IEnumerator DoStatusEffect(float statusDuration, int statusCount, float statusAmmount, StatusType statusType)
+    IEnumerator DoStatusEffect(float tickDuration, int statusCount, float statusAmmount, StatusType statusType)
     {
         switch(statusType)
         {
@@ -83,7 +83,7 @@ public class StatusManager : MonoBehaviour
                     break;
             }
 
-            yield return new WaitForSeconds(statusDuration);
+            yield return new WaitForSeconds(tickDuration);
             currentCount++;
         }
         //fireEffect.emit = false;

@@ -39,7 +39,7 @@ public class Vortex : MonoBehaviour
             enemy.GetComponent<Rigidbody2D>().inertia = 0;
 
             //stuns the player while they are knockedback
-            enemy.GetComponent<StatusManager>().StartStaus(dotDuration: knockbackDuration, tickCount: 1, statusAmmount: 0, StatusManager.StatusType.Stun);
+            enemy.GetComponent<StatusManager>().StartStaus(tickDuration: knockbackDuration, tickCount: 1, statusAmmount: 0, StatusManager.StatusType.Stun);
 
             enemy.GetComponent<Rigidbody2D>().AddForce(dir * knockbackStrength, ForceMode2D.Impulse);
 
