@@ -164,6 +164,7 @@ public class PlayerInitalize : MonoBehaviour
     {
         Debug.Log(playerLayer + "player leyer");
         cineCam.gameObject.layer = playerLayer + 6;
+        cineCam.GetComponent<Cinemachine.CinemachineConfiner2D>().m_BoundingShape2D = GameObject.FindGameObjectWithTag("Background").GetComponent<Collider2D>();
 
         //culling mask isnt properally grabbing the player we care about only culling some layers needa do the bitmask thing
         var bitMask = (1 << playerLayer + 6)

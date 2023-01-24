@@ -36,6 +36,9 @@ public class LookAtMouse : MonoBehaviour
             // Get the mouse position in world space. Using camDis for the Z axis.
             Vector3 mouse = playerCamera.ScreenToWorldPoint(new Vector3(aimAction.ReadValue<Vector2>().x, aimAction.ReadValue<Vector2>().y, camDis));
 
+
+            aimIndicator.transform.position = mouse;
+
             float AngleRad = Mathf.Atan2(mouse.y - m_transform.position.y, mouse.x - m_transform.position.x);
             float angle = (180 / Mathf.PI) * AngleRad;
 
@@ -48,18 +51,18 @@ public class LookAtMouse : MonoBehaviour
             //will need to make this grow depending on how long you have the button held down
             
             //get the direction of the stick, use that to determine our facing?
-            Vector2 aimDirection = aimAction.ReadValue<Vector2>() * 5;
+            Vector2 aimDirection = aimAction.ReadValue<Vector2>() * 10;
        
             // Distance from camera to object.  We need this to get the proper calculation.
             float camDis = playerCamera.transform.position.y - m_transform.position.y;
 
-            // Get the mouse position in world space. Using camDis for the Z axis.
-            Vector3 mouse =
+            // Get the pointer position in world space. Using camDis for the Z axis.
+            Vector3 pointer =
                 new Vector3(aimDirection.x + transform.position.x, aimDirection.y + transform.position.y, camDis);
             
-            aimIndicator.transform.position = mouse;
+            aimIndicator.transform.position = pointer;
 
-            float AngleRad = Mathf.Atan2(mouse.y - m_transform.position.y, mouse.x - m_transform.position.x);
+            float AngleRad = Mathf.Atan2(pointer.y - m_transform.position.y, pointer.x - m_transform.position.x);
             float angle = (180 / Mathf.PI) * AngleRad;
 
             art.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);

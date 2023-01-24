@@ -12,6 +12,7 @@ TagManager:
   - Player6
   - Projectile
   - Target
+  - Background
   layers:
   - Default
   - TransparentFX

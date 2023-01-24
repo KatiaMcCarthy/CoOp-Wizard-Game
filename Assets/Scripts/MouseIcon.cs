@@ -26,6 +26,7 @@ public class MouseIcon : MonoBehaviour
         }
     }
 
+    
     // Update is called once per frame
     void Update()
     {
@@ -52,6 +53,7 @@ public class MouseIcon : MonoBehaviour
             Icon.gameObject.SetActive(false); 
         }
     }
+    
 
     public Camera GetPlayerCamera()
     {

@@ -97,6 +97,11 @@ public class FireWall : MonoBehaviour
         if (collision.CompareTag("Player6") && !isPlayerSix)
         {
             collision.GetComponent<StatusManager>().StartStaus(duration, tickCount, damagePerTick, damageType);
+        } 
+        
+        if (collision.CompareTag("Target"))
+        {
+            collision.GetComponent<StatusManager>().StartStaus(duration, tickCount, damagePerTick, damageType);
         }
     }
 
