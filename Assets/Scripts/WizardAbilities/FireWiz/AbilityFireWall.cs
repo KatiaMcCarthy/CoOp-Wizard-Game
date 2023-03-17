@@ -31,6 +31,8 @@ public class AbilityFireWall : MonoBehaviour
 
     private void Update()
     {
+        if (stats.IsDead) { return; }
+
         if (abilEnviroAction.ReadValue<float>() == 1 && Time.time >= firewallTime)
         {
             Debug.Log("firewall");

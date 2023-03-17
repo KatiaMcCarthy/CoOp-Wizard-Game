@@ -32,6 +32,8 @@ public class IceDash : MonoBehaviour
 
     private void Update()
     {
+        if (stats.IsDead) { return; }
+
         if (abilMoveAction.ReadValue<float>() == 1 && Time.time >= dashTime)
         {
             Debug.Log("ice dash");

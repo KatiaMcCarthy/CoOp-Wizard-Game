@@ -31,6 +31,7 @@ public class AbilityBloodPool : MonoBehaviour
 
     private void Update()
     {
+        if (stats.IsDead) { return; }
         if (abilEnviroAction.ReadValue<float>() == 1 && Time.time >= bloodPoolTime)
         {
             Debug.Log("bloodpool");

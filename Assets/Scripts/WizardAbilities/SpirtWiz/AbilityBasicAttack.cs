@@ -7,6 +7,7 @@ public class AbilityBasicAttack : MonoBehaviour
 {
     private PlayerInput playerInput;
     private InputAction shootAction;
+    private PlayerStats stats;
 
     [SerializeField] private GameObject projectile;
     [SerializeField] private float autolockRadius;
@@ -22,12 +23,15 @@ public class AbilityBasicAttack : MonoBehaviour
     private void Start()
     {
         playerInput = GetComponentInParent<PlayerInput>();
+        stats = GetComponentInParent<PlayerStats>();
         shootAction = playerInput.actions["Shoot"];
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (stats.IsDead) { return; }
+
         if (shootAction.ReadValue<float>() == 1 && Time.time >= attackTime)
         {
             Debug.Log("shoot");

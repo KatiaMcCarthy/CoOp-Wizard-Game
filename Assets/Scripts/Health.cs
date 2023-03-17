@@ -34,7 +34,11 @@ public class Health : MonoBehaviour
 
     private void Die()
     {
-        Destroy(this.gameObject);
+        GetComponentInParent<PlayerStats>().UpdateDeathStatus(true);
+        GetComponentInParent<PlayerInitalize>().HandleDeathTimer();
+
+
+        this.gameObject.SetActive(false);
     }
 
     public void SetMaxHealth(float ammount)

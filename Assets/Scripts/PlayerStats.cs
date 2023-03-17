@@ -13,6 +13,12 @@ public class PlayerStats : MonoBehaviour
     public int PlayerID { get; private set; }
     public int TeamID { get; private set; }
 
+    public bool IsDead { get; private set; }
+
+    public void UpdateDeathStatus(bool status)
+    {
+        IsDead = status;
+    }
 
     public void UpdateHealth(float ammount, bool shouldHeal)
     {

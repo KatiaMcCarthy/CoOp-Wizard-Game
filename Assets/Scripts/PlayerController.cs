@@ -13,10 +13,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed;
     private Vector2 movementDirection;
     private Rigidbody2D rb2d;
+    private PlayerStats stats;
 
     private void Start()
     {
         playerInput = GetComponentInParent<PlayerInput>();
+        stats = GetComponentInParent<PlayerStats>();
         movementAction = playerInput.actions["Movement"];
         rb2d = GetComponent<Rigidbody2D>();
     }
@@ -24,21 +26,25 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(speed != GetComponentInParent<PlayerStats>().Speed)
+        if (!stats.IsDead)
         {
-            speed = GetComponentInParent<PlayerStats>().Speed;
-        }
+            if (speed != stats.Speed)
+            {
+                speed = stats.Speed;
+            }
 
-        movementDirection = movementAction.ReadValue<Vector2>().normalized;
+            movementDirection = movementAction.ReadValue<Vector2>().normalized;
+        }
     }
 
     private void FixedUpdate()
     {
-        if (!GetComponent<StatusManager>().OnStunned)
+        if (!stats.IsDead)
         {
-            rb2d.velocity = movementDirection * speed * Time.deltaTime;
+            if (!GetComponent<StatusManager>().OnStunned)
+            {
+                rb2d.velocity = movementDirection * speed * Time.deltaTime;
+            }
         }
     }
-
-   
 }

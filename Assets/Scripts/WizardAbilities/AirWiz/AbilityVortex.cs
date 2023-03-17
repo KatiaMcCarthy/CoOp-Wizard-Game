@@ -31,12 +31,15 @@ public class AbilityVortex : MonoBehaviour
 
     private void Update()
     {
-        if (abilEnviroAction.ReadValue<float>() == 1 && Time.time >= vortexTime)
+        if (!stats.IsDead)
         {
-            Debug.Log("vortex");
-            mouseLocation = GetComponentInParent<MouseIcon>().Icon;
-            SpawnVortex();
-            vortexTime = Time.time + cooldown;
+            if (abilEnviroAction.ReadValue<float>() == 1 && Time.time >= vortexTime)
+            {
+                Debug.Log("vortex");
+                mouseLocation = GetComponentInParent<MouseIcon>().Icon;
+                SpawnVortex();
+                vortexTime = Time.time + cooldown;
+            }
         }
     }
 

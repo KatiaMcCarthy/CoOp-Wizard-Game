@@ -31,6 +31,8 @@ public class AbilityEarthWall : MonoBehaviour
 
     private void Update()
     {
+        if (stats.IsDead) { return; }
+
         if (abilEnviroAction.ReadValue<float>() == 1 && Time.time >= earthWallTime)
         {
             Debug.Log("earth wall");

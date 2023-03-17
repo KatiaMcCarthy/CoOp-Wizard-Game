@@ -8,6 +8,7 @@ public class PlayerShoot : MonoBehaviour
 {
     private PlayerInput playerInput;
     private InputAction shootAction;
+    private PlayerStats stats;
 
     [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject projectile;
@@ -17,19 +18,23 @@ public class PlayerShoot : MonoBehaviour
     private void Start()
     {
         playerInput = GetComponentInParent<PlayerInput>();
+        stats = GetComponentInParent<PlayerStats>();
         shootAction = playerInput.actions["Shoot"];
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(shootAction.ReadValue<float>() == 1 && Time.time >= attackTime)
+        if (!stats.IsDead)
         {
-            Debug.Log("shoot");
+            if (shootAction.ReadValue<float>() == 1 && Time.time >= attackTime)
+            {
+                Debug.Log("shoot");
 
-            Shoot();
+                Shoot();
 
-            attackTime = Time.time + this.GetComponentInParent<PlayerStats>().AttackSpeed;
+                attackTime = Time.time + stats.AttackSpeed;
+            }
         }
     }
 
@@ -39,7 +44,7 @@ public class PlayerShoot : MonoBehaviour
     private void Shoot()
     {
        GameObject shot = Instantiate(projectile, firePoint.position, firePoint.rotation);
-        shot.GetComponent<Projectile>().SetPlayer(this.GetComponentInParent<PlayerStats>().PlayerID);
-        shot.GetComponent<Projectile>().damage = this.GetComponentInParent<PlayerStats>().BaseDamage;
+        shot.GetComponent<Projectile>().SetPlayer(stats.PlayerID);
+        shot.GetComponent<Projectile>().damage = stats.BaseDamage;
     }
 }

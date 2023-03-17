@@ -30,6 +30,8 @@ public class Haste : MonoBehaviour
 
     private void Update()
     {
+        if (stats.IsDead) { return; }
+
         if (abilMoveAction.ReadValue<float>() == 1 && Time.time >= hasteTime)
         {
             Debug.Log("haste");

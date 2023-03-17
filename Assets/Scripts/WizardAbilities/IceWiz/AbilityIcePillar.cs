@@ -31,6 +31,8 @@ public class AbilityIcePillar : MonoBehaviour
 
     private void Update()
     {
+        if (stats.IsDead) { return; }
+
         if (abilEnviroAction.ReadValue<float>() == 1 && Time.time >= icePillarTime)
         {
             Debug.Log("Ice Pillar");

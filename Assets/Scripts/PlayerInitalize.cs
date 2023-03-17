@@ -16,6 +16,9 @@ public class PlayerInitalize : MonoBehaviour
     [SerializeField] private ActionMapHandler actionMapHandler;
     private PlayerStats stats;
 
+    [SerializeField] private float deathTimer;
+    private GameObject spawnedPlayer;
+
     private int SelectedCharacter;
     public float SelectedMaxHealth { get; private set; }
     public float SelectedSpeed { get; private set; }
@@ -148,16 +151,28 @@ public class PlayerInitalize : MonoBehaviour
 
     private void SpawnCharacter(int index)
     {
-        GameObject player = Instantiate(possibleCharacters[index].player, transform.position, transform.rotation);
-        player.transform.parent = this.gameObject.transform;
+        spawnedPlayer = Instantiate(possibleCharacters[index].player, transform.position, transform.rotation);
+        spawnedPlayer.transform.parent = this.gameObject.transform;
 
         if (localCam)
         {
-            cineCam.Follow = player.transform;
-            cineCam.LookAt = player.transform;
+            cineCam.Follow = spawnedPlayer.transform;
+            cineCam.LookAt = spawnedPlayer.transform;
         }
 
-        PlayerManager.Instance.UpdatePlayerList(player);
+        PlayerManager.Instance.UpdatePlayerList(spawnedPlayer);
+    }
+
+    public void HandleDeathTimer()
+    {
+        Invoke(nameof(RespawnCharacter), deathTimer);
+    }
+
+    private void RespawnCharacter()
+    {
+        //handles re enableing the player (sends a message to the players health script?)
+        stats.UpdateDeathStatus(false);
+        spawnedPlayer.SetActive(true);
     }
 
     public void SetUpCamera(int playerLayer)

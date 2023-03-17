@@ -27,6 +27,8 @@ public class Drain : MonoBehaviour
 
     private void Update()
     {
+        if (stats.IsDead) { return; }
+
         if (abilMoveAction.ReadValue<float>() == 1 && Time.time >= drainTime)
         {
             Debug.Log("drain");

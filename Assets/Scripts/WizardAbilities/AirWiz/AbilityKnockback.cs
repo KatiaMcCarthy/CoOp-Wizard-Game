@@ -28,14 +28,17 @@ public class AbilityKnockback : MonoBehaviour
 
     private void Update()
     {
-        if (abilMoveAction.ReadValue<float>() == 1 && Time.time >= knockbackTime)
+        if (!stats.IsDead)
         {
-            Debug.Log("knockback");
-            mouseLocation = GetComponentInParent<MouseIcon>().Icon;
-            //trigger animation
-            KnockbackEffect();
+            if (abilMoveAction.ReadValue<float>() == 1 && Time.time >= knockbackTime)
+            {
+                Debug.Log("knockback");
+                mouseLocation = GetComponentInParent<MouseIcon>().Icon;
+                //trigger animation
+                KnockbackEffect();
 
-            knockbackTime = Time.time + cooldown;
+                knockbackTime = Time.time + cooldown;
+            }
         }
     }
 
